@@ -17,7 +17,5 @@ struct MagicData {
                         "♣️","♣️","♣️","♣️",
                         "♥️","♥️","♥️","♥️",
                         "♦️","♦️","♦️","♦️"]
-    static var crashData = ["✨","✨","✨","✨"]
-    static var magicNumberIndex = 0
-    static var magicSuitIndex = 0
+    static var crashData = ["crash","animate"]
 }

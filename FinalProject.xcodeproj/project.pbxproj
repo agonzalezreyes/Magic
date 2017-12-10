@@ -25,6 +25,7 @@
 		5E8989761FD4B2E100ACE734 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8989751FD4B2E100ACE734 /* Level.swift */; };
 		5E8989781FD4B58800ACE734 /* Levels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8989771FD4B58800ACE734 /* Levels.swift */; };
 		5E89897A1FD4BA1D00ACE734 /* LevelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8989791FD4BA1D00ACE734 /* LevelCollectionViewCell.swift */; };
+		5EEBF4361FDB398F00293EB4 /* MagicResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF4351FDB398F00293EB4 /* MagicResult.swift */; };
 		5EF86A571FD895F60050DFF8 /* 3.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 5EF86A541FD895F50050DFF8 /* 3.PNG */; };
 		5EF86A581FD895F60050DFF8 /* 1.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 5EF86A551FD895F50050DFF8 /* 1.PNG */; };
 		5EF86A591FD895F60050DFF8 /* 2.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 5EF86A561FD895F60050DFF8 /* 2.PNG */; };
@@ -51,6 +52,7 @@
 		5E8989751FD4B2E100ACE734 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		5E8989771FD4B58800ACE734 /* Levels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Levels.swift; sourceTree = "<group>"; };
 		5E8989791FD4BA1D00ACE734 /* LevelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCollectionViewCell.swift; sourceTree = "<group>"; };
+		5EEBF4351FDB398F00293EB4 /* MagicResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicResult.swift; sourceTree = "<group>"; };
 		5EF86A541FD895F50050DFF8 /* 3.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.PNG; sourceTree = "<group>"; };
 		5EF86A551FD895F50050DFF8 /* 1.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.PNG; sourceTree = "<group>"; };
 		5EF86A561FD895F60050DFF8 /* 2.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.PNG; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				5E672EC71FD760AA00614EA4 /* MagicItemViewController.swift */,
 				5E672EC91FD7617D00614EA4 /* MagicCollectionViewCell.swift */,
 				5E672ECB1FD762E000614EA4 /* MagicData.swift */,
+				5EEBF4351FDB398F00293EB4 /* MagicResult.swift */,
 				5EF86A551FD895F50050DFF8 /* 1.PNG */,
 				5EF86A561FD895F60050DFF8 /* 2.PNG */,
 				5EF86A541FD895F50050DFF8 /* 3.PNG */,
@@ -223,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E8989761FD4B2E100ACE734 /* Level.swift in Sources */,
+				5EEBF4361FDB398F00293EB4 /* MagicResult.swift in Sources */,
 				5E8989781FD4B58800ACE734 /* Levels.swift in Sources */,
 				5E205C5A1FD088C000816F78 /* FaceDetection.swift in Sources */,
 				5E205C4A1FD0882400816F78 /* StartViewController.swift in Sources */,
@@ -373,11 +377,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K4DJ8NDU4W;
 				INFOPLIST_FILE = FinalProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.alejandrinagonzalez.FinalProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alejandrinagonzalez.magic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -388,11 +393,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K4DJ8NDU4W;
 				INFOPLIST_FILE = FinalProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.alejandrinagonzalez.FinalProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alejandrinagonzalez.magic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

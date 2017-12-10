@@ -63,6 +63,8 @@ class StartViewController: UIViewController, FaceDetectionDelegate {
         tracker.startRunning()
 
         let v = UIView(frame: self.view.frame)
+        // not the best way to get the capture session
+        // this HAS to go after tracker = FaceDetection()
         let captureLayer = AVCaptureVideoPreviewLayer(session: tracker.captureSession)
         captureLayer.frame = self.view.frame
         v.layer.addSublayer(captureLayer)
@@ -78,12 +80,18 @@ class StartViewController: UIViewController, FaceDetectionDelegate {
         self.emojiView.addSubview(activityIndicator)
         
         let _ = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(check), userInfo: nil, repeats: true)
-       // self.gameDone() // for testing
+       
+        // hidden gesture to go to magic settings
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(gameDone))
+        swipeDown.direction = .down
+        swipeDown.numberOfTouchesRequired = 2
+        self.view.addGestureRecognizer(swipeDown)
+        
     }
 
-    private func gameDone(){
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
-            self.performSegue(withIdentifier: "nextVC", sender: self)
+    @objc private func gameDone(){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+           self.performSegue(withIdentifier: "nextVC", sender: self)
         }
     }
     
@@ -124,14 +132,14 @@ class StartViewController: UIViewController, FaceDetectionDelegate {
     func horizontalDirection(_ faceDetection: FaceDetection, newHorizontalDirection: Float) {
         if hasSmiledOnce {
             DispatchQueue.main.async {
-                self.emojiView.emojiLabel.center.x += CGFloat(newHorizontalDirection)*CGFloat(5.0)
+                self.emojiView.emojiLabel.center.x += CGFloat(newHorizontalDirection)*CGFloat(7.0)
             }
         }
     }
     func verticalDirection(_ faceDetection: FaceDetection, newVerticalDirection: Float) {
         if hasSmiledOnce {
             DispatchQueue.main.async {
-                self.emojiView.emojiLabel.center.y += CGFloat(newVerticalDirection)*CGFloat(5.0)
+                self.emojiView.emojiLabel.center.y += CGFloat(newVerticalDirection)*CGFloat(7.0)
             }
         }
     }

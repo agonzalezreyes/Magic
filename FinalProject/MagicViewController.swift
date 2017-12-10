@@ -19,7 +19,7 @@ class MagicViewController: UIViewController, UIPageViewControllerDataSource, UIP
     private var statusImage: UIImageView!
     private var controlImage: UIImageView!
     private var houdini: UIImageView!
-    private var imageName = ""
+    private var magicResult = MagicResult(with: ".PNG")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,11 +61,11 @@ class MagicViewController: UIViewController, UIPageViewControllerDataSource, UIP
         let index = currentControllerIndex()
         switch index {
         case 2:
-            MagicData.magicSuitIndex = result
-            imageName.append(MagicData.suits[result])
+            let suit = MagicData.suits[result]
+            magicResult.number = "\(suit)"
         case 1:
-            MagicData.magicNumberIndex = result
-            imageName.append(MagicData.suits[result])
+            let num = MagicData.cardNumbers[result]
+            magicResult.number = "\(num)"
         default:
             print("crash")
         }

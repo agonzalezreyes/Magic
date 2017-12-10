@@ -13,7 +13,7 @@ class SecondViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var levelsCollectionView: UICollectionView! {
-        didSet{
+        didSet {
             levelsCollectionView.delegate = self
             levelsCollectionView.dataSource = self
         }
