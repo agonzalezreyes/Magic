@@ -95,7 +95,7 @@
         <!--Settings-->
         <scene sceneID="VSC-Te-XDb">
             <objects>
-                <viewController id="5EB-WA-mwz" sceneMemberID="viewController">
+                <viewController id="5EB-WA-mwz" customClass="SettingsViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nRv-Yt-GYa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -104,25 +104,31 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ModeCell" rowHeight="60" id="9Vv-MC-YIi">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ModeCell" rowHeight="60" id="9Vv-MC-YIi" customClass="ModeSettingsTableViewCell" customModule="FinalProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9Vv-MC-YIi" id="YR7-k9-bA0">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Fm5-tk-nUi">
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Fm5-tk-nUi">
                                                     <rect key="frame" x="26" y="15" width="323" height="29"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <segments>
                                                         <segment title="Photo Gallery"/>
                                                         <segment title="Animate + Photo Gallery"/>
                                                     </segments>
                                                 </segmentedControl>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Fm5-tk-nUi" firstAttribute="centerX" secondItem="YR7-k9-bA0" secondAttribute="centerX" id="6yC-HP-Prp"/>
+                                                <constraint firstItem="Fm5-tk-nUi" firstAttribute="centerY" secondItem="YR7-k9-bA0" secondAttribute="centerY" id="IeU-Uj-dWI"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="segmentModeControl" destination="Fm5-tk-nUi" id="J8i-80-65F"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FakeScreenCells" rowHeight="150" id="9YG-un-fwn">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ScreensCell" rowHeight="150" id="9YG-un-fwn" customClass="ScreensTableViewCell" customModule="FinalProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="115.5" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9YG-un-fwn" id="zPo-1d-mD1">
@@ -132,17 +138,32 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="XS4-dJ-4pN">
                                                     <rect key="frame" x="8" y="8" width="359" height="133.5"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zEG-4y-cbv">
+                                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zEG-4y-cbv">
                                                             <rect key="frame" x="0.0" y="0.0" width="119.5" height="133.5"/>
-                                                            <state key="normal" title="Screen 1"/>
+                                                            <state key="normal" title="Screen 1">
+                                                                <color key="titleColor" red="0.062745098040000002" green="0.54901960780000003" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="selectButton:" destination="9YG-un-fwn" eventType="touchUpInside" id="6Ud-HA-irp"/>
+                                                            </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NT5-sh-zpU">
+                                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NT5-sh-zpU">
                                                             <rect key="frame" x="119.5" y="0.0" width="120" height="133.5"/>
-                                                            <state key="normal" title="Screen 2"/>
+                                                            <state key="normal" title="Screen 2">
+                                                                <color key="titleColor" red="0.062745098040000002" green="0.54901960780000003" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="selectButton:" destination="9YG-un-fwn" eventType="touchUpInside" id="Qfw-Uj-p7g"/>
+                                                            </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4o-ha-h55">
+                                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4o-ha-h55">
                                                             <rect key="frame" x="239.5" y="0.0" width="119.5" height="133.5"/>
-                                                            <state key="normal" title="Screen 3"/>
+                                                            <state key="normal" title="Screen 3">
+                                                                <color key="titleColor" red="0.062745098040000002" green="0.54901960780000003" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="selectButton:" destination="9YG-un-fwn" eventType="touchUpInside" id="Y0R-ib-EII"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <constraints>
@@ -162,26 +183,31 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="XS4-dJ-4pN" secondAttribute="bottom" id="rEw-k7-TqK"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="screen1" destination="zEG-4y-cbv" id="sGR-GY-zY5"/>
+                                            <outlet property="screen2" destination="NT5-sh-zpU" id="O2G-jc-Jnq"/>
+                                            <outlet property="screen3" destination="C4o-ha-h55" id="1s2-js-d1Q"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BackgroundCell" rowHeight="120" id="0L2-3K-UyB">
-                                        <rect key="frame" x="0.0" y="265.5" width="375" height="120"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BackgroundCell" rowHeight="100" id="0L2-3K-UyB" customClass="BackgroundsTableViewCell" customModule="FinalProject" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="265.5" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0L2-3K-UyB" id="GKK-Qh-TDO">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2rP-Q8-4Kx">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cSi-zL-bXn">
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cSi-zL-bXn">
                                                         <size key="itemSize" width="50" height="50"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BackgroundColorCell" id="eRr-hM-kQX">
-                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BackgroundColorCell" id="eRr-hM-kQX" customClass="BackgroundCollectionViewCell" customModule="FinalProject" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="25" width="50" height="50"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -199,6 +225,9 @@
                                                                 <constraint firstAttribute="trailing" secondItem="40j-3s-yMl" secondAttribute="trailing" id="sqw-uw-eeZ"/>
                                                                 <constraint firstItem="40j-3s-yMl" firstAttribute="leading" secondItem="eRr-hM-kQX" secondAttribute="leading" id="ssM-jy-urm"/>
                                                             </constraints>
+                                                            <connections>
+                                                                <outlet property="colorImageView" destination="40j-3s-yMl" id="gac-Vz-p6y"/>
+                                                            </connections>
                                                         </collectionViewCell>
                                                     </cells>
                                                 </collectionView>
@@ -210,16 +239,19 @@
                                                 <constraint firstAttribute="bottom" secondItem="2rP-Q8-4Kx" secondAttribute="bottom" id="XXd-yS-OoX"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="backgroundsCollectionView" destination="2rP-Q8-4Kx" id="qsW-iG-C7f"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TimeCell" rowHeight="70" id="mks-H7-1cK">
-                                        <rect key="frame" x="0.0" y="385.5" width="375" height="70"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TimeCell" rowHeight="60" id="mks-H7-1cK" customClass="TimeTableViewCell" customModule="FinalProject" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="365.5" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mks-H7-1cK" id="N4K-mb-u07">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="69.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time of prediction" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adU-Jl-rsb">
-                                                    <rect key="frame" x="8" y="8" width="326" height="53.5"/>
+                                                    <rect key="frame" x="8" y="8" width="326" height="43.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -232,9 +264,12 @@
                                                 <constraint firstItem="adU-Jl-rsb" firstAttribute="leading" secondItem="N4K-mb-u07" secondAttribute="leadingMargin" id="n8f-tC-9Vd"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="timeLabel" destination="adU-Jl-rsb" id="eQi-Hn-PNz"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OrderSuitsCell" rowHeight="100" id="lCh-Sl-O2n">
-                                        <rect key="frame" x="0.0" y="455.5" width="375" height="100"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SuitsCell" rowHeight="100" id="lCh-Sl-O2n" userLabel="SuitsCell" customClass="SuitsTableViewCell" customModule="FinalProject" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="425.5" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lCh-Sl-O2n" id="efd-HE-fIJ">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
@@ -243,15 +278,15 @@
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PRP-5t-brd">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="z4U-pC-Y0U">
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="z4U-pC-Y0U">
                                                         <size key="itemSize" width="50" height="50"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SuitsCell" id="x0z-Jb-W61">
-                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SuitCell" id="x0z-Jb-W61" customClass="SuitCollectionViewCell" customModule="FinalProject" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="25" width="50" height="50"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -271,6 +306,9 @@
                                                                 <constraint firstAttribute="bottom" secondItem="1HY-r9-4KX" secondAttribute="bottom" id="oC6-Wq-PP1"/>
                                                                 <constraint firstAttribute="trailing" secondItem="1HY-r9-4KX" secondAttribute="trailing" id="tIV-OR-uw7"/>
                                                             </constraints>
+                                                            <connections>
+                                                                <outlet property="suitLabel" destination="1HY-r9-4KX" id="9XJ-iH-lwB"/>
+                                                            </connections>
                                                         </collectionViewCell>
                                                     </cells>
                                                 </collectionView>
@@ -282,6 +320,9 @@
                                                 <constraint firstAttribute="trailing" secondItem="PRP-5t-brd" secondAttribute="trailing" id="nVq-u6-C6B"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="suitsCollectionView" destination="PRP-5t-brd" id="504-Dg-ZAf"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -297,6 +338,9 @@
                                                 <state key="normal" title="Save">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="saveSettings:" destination="5EB-WA-mwz" eventType="touchUpInside" id="sJh-OB-mba"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvo-EJ-HfL">
                                                 <rect key="frame" x="187.5" y="0.0" width="187.5" height="49"/>
@@ -304,6 +348,9 @@
                                                 <state key="normal" title="Save &amp; Perform">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="saveAndPerform:" destination="5EB-WA-mwz" eventType="touchUpInside" id="Twa-0v-m51"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -337,6 +384,10 @@
                         <viewLayoutGuide key="safeArea" id="1jy-R7-sS5"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="ghg-st-KJn"/>
+                    <connections>
+                        <outlet property="settingsTableView" destination="e4i-tT-riG" id="5hT-D2-0pb"/>
+                        <segue destination="BcV-US-Wah" kind="showDetail" identifier="perform" action="showViewController:sender:" id="OH2-zi-6zT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eEb-k7-8aH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

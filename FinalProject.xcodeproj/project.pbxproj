@@ -25,7 +25,17 @@
 		5E8989761FD4B2E100ACE734 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8989751FD4B2E100ACE734 /* Level.swift */; };
 		5E8989781FD4B58800ACE734 /* Levels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8989771FD4B58800ACE734 /* Levels.swift */; };
 		5E89897A1FD4BA1D00ACE734 /* LevelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8989791FD4BA1D00ACE734 /* LevelCollectionViewCell.swift */; };
+		5ECB2F561FDDDBAC009FE53C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECB2F551FDDDBAC009FE53C /* Colors.swift */; };
 		5EEBF4361FDB398F00293EB4 /* MagicResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF4351FDB398F00293EB4 /* MagicResult.swift */; };
+		5EEBF4381FDCD96400293EB4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF4371FDCD96400293EB4 /* SettingsViewController.swift */; };
+		5EEBF43A1FDCDAF200293EB4 /* ModeSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF4391FDCDAF200293EB4 /* ModeSettingsTableViewCell.swift */; };
+		5EEBF43C1FDCDB5200293EB4 /* ScreensTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF43B1FDCDB5200293EB4 /* ScreensTableViewCell.swift */; };
+		5EEBF43E1FDCDBED00293EB4 /* BackgroundsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF43D1FDCDBED00293EB4 /* BackgroundsTableViewCell.swift */; };
+		5EEBF4401FDCDC9700293EB4 /* TimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF43F1FDCDC9700293EB4 /* TimeTableViewCell.swift */; };
+		5EEBF4421FDCDCF000293EB4 /* SuitsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF4411FDCDCF000293EB4 /* SuitsTableViewCell.swift */; };
+		5EEBF4441FDCDD6A00293EB4 /* SuitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF4431FDCDD6A00293EB4 /* SuitCollectionViewCell.swift */; };
+		5EEBF4461FDCDD9A00293EB4 /* BackgroundCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF4451FDCDD9A00293EB4 /* BackgroundCollectionViewCell.swift */; };
+		5EEBF4481FDCDE8400293EB4 /* MagicSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF4471FDCDE8400293EB4 /* MagicSettings.swift */; };
 		5EF86A571FD895F60050DFF8 /* 3.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 5EF86A541FD895F50050DFF8 /* 3.PNG */; };
 		5EF86A581FD895F60050DFF8 /* 1.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 5EF86A551FD895F50050DFF8 /* 1.PNG */; };
 		5EF86A591FD895F60050DFF8 /* 2.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 5EF86A561FD895F60050DFF8 /* 2.PNG */; };
@@ -52,7 +62,17 @@
 		5E8989751FD4B2E100ACE734 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		5E8989771FD4B58800ACE734 /* Levels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Levels.swift; sourceTree = "<group>"; };
 		5E8989791FD4BA1D00ACE734 /* LevelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCollectionViewCell.swift; sourceTree = "<group>"; };
+		5ECB2F551FDDDBAC009FE53C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		5EEBF4351FDB398F00293EB4 /* MagicResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicResult.swift; sourceTree = "<group>"; };
+		5EEBF4371FDCD96400293EB4 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		5EEBF4391FDCDAF200293EB4 /* ModeSettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSettingsTableViewCell.swift; sourceTree = "<group>"; };
+		5EEBF43B1FDCDB5200293EB4 /* ScreensTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreensTableViewCell.swift; sourceTree = "<group>"; };
+		5EEBF43D1FDCDBED00293EB4 /* BackgroundsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundsTableViewCell.swift; sourceTree = "<group>"; };
+		5EEBF43F1FDCDC9700293EB4 /* TimeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewCell.swift; sourceTree = "<group>"; };
+		5EEBF4411FDCDCF000293EB4 /* SuitsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuitsTableViewCell.swift; sourceTree = "<group>"; };
+		5EEBF4431FDCDD6A00293EB4 /* SuitCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuitCollectionViewCell.swift; sourceTree = "<group>"; };
+		5EEBF4451FDCDD9A00293EB4 /* BackgroundCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCollectionViewCell.swift; sourceTree = "<group>"; };
+		5EEBF4471FDCDE8400293EB4 /* MagicSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicSettings.swift; sourceTree = "<group>"; };
 		5EF86A541FD895F50050DFF8 /* 3.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.PNG; sourceTree = "<group>"; };
 		5EF86A551FD895F50050DFF8 /* 1.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.PNG; sourceTree = "<group>"; };
 		5EF86A561FD895F60050DFF8 /* 2.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.PNG; sourceTree = "<group>"; };
@@ -89,20 +109,20 @@
 			isa = PBXGroup;
 			children = (
 				5E205C471FD0882400816F78 /* AppDelegate.swift */,
-				5E89896F1FD476DC00ACE734 /* SecondViewController.swift */,
 				5E205C4B1FD0882400816F78 /* Main.storyboard */,
+				5EEBF4491FDCE02400293EB4 /* Magic Settings Cells */,
+				5EEBF4371FDCD96400293EB4 /* SettingsViewController.swift */,
 				5E672ED31FD769DB00614EA4 /* MagicViewController.swift */,
 				5E672EC71FD760AA00614EA4 /* MagicItemViewController.swift */,
 				5E672EC91FD7617D00614EA4 /* MagicCollectionViewCell.swift */,
 				5E672ECB1FD762E000614EA4 /* MagicData.swift */,
 				5EEBF4351FDB398F00293EB4 /* MagicResult.swift */,
-				5EF86A551FD895F50050DFF8 /* 1.PNG */,
-				5EF86A561FD895F60050DFF8 /* 2.PNG */,
-				5EF86A541FD895F50050DFF8 /* 3.PNG */,
-				5E8989651FD3AB2300ACE734 /* Card Images */,
-				5E672ECE1FD7694600614EA4 /* Scavenger hunt  */,
-				5E672ECD1FD768FD00614EA4 /* Face Tracking Game */,
+				5EEBF4471FDCDE8400293EB4 /* MagicSettings.swift */,
+				5ECB2F551FDDDBAC009FE53C /* Colors.swift */,
+				5E8989651FD3AB2300ACE734 /* Test Card Images */,
+				5E672ECD1FD768FD00614EA4 /* Face Tracking */,
 				5E89896E1FD4724800ACE734 /* Sound FX */,
+				5E672ECE1FD7694600614EA4 /* Scavenger hunt  */,
 				5E205C4E1FD0882400816F78 /* Assets.xcassets */,
 				5E205C501FD0882400816F78 /* LaunchScreen.storyboard */,
 				5E205C531FD0882400816F78 /* Info.plist */,
@@ -110,7 +130,7 @@
 			path = FinalProject;
 			sourceTree = "<group>";
 		};
-		5E672ECD1FD768FD00614EA4 /* Face Tracking Game */ = {
+		5E672ECD1FD768FD00614EA4 /* Face Tracking */ = {
 			isa = PBXGroup;
 			children = (
 				5E205C591FD088C000816F78 /* FaceDetection.swift */,
@@ -118,7 +138,7 @@
 				5E8989791FD4BA1D00ACE734 /* LevelCollectionViewCell.swift */,
 				5E8989631FD388ED00ACE734 /* BlurryView.swift */,
 			);
-			path = "Face Tracking Game";
+			path = "Face Tracking";
 			sourceTree = "<group>";
 		};
 		5E672ECE1FD7694600614EA4 /* Scavenger hunt  */ = {
@@ -131,11 +151,15 @@
 			path = "Scavenger hunt ";
 			sourceTree = "<group>";
 		};
-		5E8989651FD3AB2300ACE734 /* Card Images */ = {
+		5E8989651FD3AB2300ACE734 /* Test Card Images */ = {
 			isa = PBXGroup;
 			children = (
+				5E89896F1FD476DC00ACE734 /* SecondViewController.swift */,
+				5EF86A551FD895F50050DFF8 /* 1.PNG */,
+				5EF86A561FD895F60050DFF8 /* 2.PNG */,
+				5EF86A541FD895F50050DFF8 /* 3.PNG */,
 			);
-			path = "Card Images";
+			path = "Test Card Images";
 			sourceTree = "<group>";
 		};
 		5E89896E1FD4724800ACE734 /* Sound FX */ = {
@@ -145,6 +169,20 @@
 				5E89896B1FD4723100ACE734 /* coin.wav */,
 			);
 			path = "Sound FX";
+			sourceTree = "<group>";
+		};
+		5EEBF4491FDCE02400293EB4 /* Magic Settings Cells */ = {
+			isa = PBXGroup;
+			children = (
+				5EEBF4451FDCDD9A00293EB4 /* BackgroundCollectionViewCell.swift */,
+				5EEBF4431FDCDD6A00293EB4 /* SuitCollectionViewCell.swift */,
+				5EEBF4411FDCDCF000293EB4 /* SuitsTableViewCell.swift */,
+				5EEBF43F1FDCDC9700293EB4 /* TimeTableViewCell.swift */,
+				5EEBF43D1FDCDBED00293EB4 /* BackgroundsTableViewCell.swift */,
+				5EEBF43B1FDCDB5200293EB4 /* ScreensTableViewCell.swift */,
+				5EEBF4391FDCDAF200293EB4 /* ModeSettingsTableViewCell.swift */,
+			);
+			path = "Magic Settings Cells";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,13 +266,23 @@
 				5E8989761FD4B2E100ACE734 /* Level.swift in Sources */,
 				5EEBF4361FDB398F00293EB4 /* MagicResult.swift in Sources */,
 				5E8989781FD4B58800ACE734 /* Levels.swift in Sources */,
+				5EEBF43E1FDCDBED00293EB4 /* BackgroundsTableViewCell.swift in Sources */,
 				5E205C5A1FD088C000816F78 /* FaceDetection.swift in Sources */,
 				5E205C4A1FD0882400816F78 /* StartViewController.swift in Sources */,
+				5EEBF4461FDCDD9A00293EB4 /* BackgroundCollectionViewCell.swift in Sources */,
 				5E672ED41FD769DB00614EA4 /* MagicViewController.swift in Sources */,
 				5E8989641FD388ED00ACE734 /* BlurryView.swift in Sources */,
 				5E8989701FD476DC00ACE734 /* SecondViewController.swift in Sources */,
 				5E672ECA1FD7617D00614EA4 /* MagicCollectionViewCell.swift in Sources */,
+				5EEBF43A1FDCDAF200293EB4 /* ModeSettingsTableViewCell.swift in Sources */,
+				5EEBF4381FDCD96400293EB4 /* SettingsViewController.swift in Sources */,
+				5ECB2F561FDDDBAC009FE53C /* Colors.swift in Sources */,
+				5EEBF43C1FDCDB5200293EB4 /* ScreensTableViewCell.swift in Sources */,
+				5EEBF4481FDCDE8400293EB4 /* MagicSettings.swift in Sources */,
 				5E672ECC1FD762E000614EA4 /* MagicData.swift in Sources */,
+				5EEBF4421FDCDCF000293EB4 /* SuitsTableViewCell.swift in Sources */,
+				5EEBF4441FDCDD6A00293EB4 /* SuitCollectionViewCell.swift in Sources */,
+				5EEBF4401FDCDC9700293EB4 /* TimeTableViewCell.swift in Sources */,
 				5E205C481FD0882400816F78 /* AppDelegate.swift in Sources */,
 				5E89897A1FD4BA1D00ACE734 /* LevelCollectionViewCell.swift in Sources */,
 				5E672EC81FD760AA00614EA4 /* MagicItemViewController.swift in Sources */,
