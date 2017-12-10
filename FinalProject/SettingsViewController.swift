@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, MagicScreensDelegate, UINavigationControllerDelegate, SuitsChangedDelegate, BackgroundCellDelegate {
+class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, MagicScreensDelegate, UINavigationControllerDelegate, SuitsChangedDelegate, BackgroundCellDelegate, UIPopoverPresentationControllerDelegate {
     
     let settings = ["Mode","Screenshots","Background Style","Time of Prediction","Suit Order"]
     let imagePicker = UIImagePickerController()
@@ -128,6 +128,13 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         return UITableViewCell()
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 3 {
+           performSegue(withIdentifier: "PopTimer", sender: self)
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
             case 0:
@@ -145,4 +152,23 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
 
+    // ideas taken from:
+    //https://stackoverflow.com/questions/31759615/how-to-center-a-popoverview-in-swift
+    //https://stackoverflow.com/questions/31221588/why-is-present-as-popover-segue-covering-the-whole-screen
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PopTimer" {
+            let popoverViewController = segue.destination as! TimeViewController
+            popoverViewController.modalPresentationStyle = .popover
+            popoverViewController.popoverPresentationController!.delegate = self
+            popoverViewController.popoverPresentationController?.sourceView = self.view
+            popoverViewController.popoverPresentationController?.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+            popoverViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
+        }
+    }
+    
+    // MARK - UIPopoverPresentationControllerDelegate
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
 }

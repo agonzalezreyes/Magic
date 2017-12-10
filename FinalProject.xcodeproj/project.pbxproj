@@ -26,6 +26,7 @@
 		5E8989781FD4B58800ACE734 /* Levels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8989771FD4B58800ACE734 /* Levels.swift */; };
 		5E89897A1FD4BA1D00ACE734 /* LevelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8989791FD4BA1D00ACE734 /* LevelCollectionViewCell.swift */; };
 		5ECB2F561FDDDBAC009FE53C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECB2F551FDDDBAC009FE53C /* Colors.swift */; };
+		5ECB2F581FDDF2A9009FE53C /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECB2F571FDDF2A9009FE53C /* TimeViewController.swift */; };
 		5EEBF4361FDB398F00293EB4 /* MagicResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF4351FDB398F00293EB4 /* MagicResult.swift */; };
 		5EEBF4381FDCD96400293EB4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF4371FDCD96400293EB4 /* SettingsViewController.swift */; };
 		5EEBF43A1FDCDAF200293EB4 /* ModeSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF4391FDCDAF200293EB4 /* ModeSettingsTableViewCell.swift */; };
@@ -63,6 +64,7 @@
 		5E8989771FD4B58800ACE734 /* Levels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Levels.swift; sourceTree = "<group>"; };
 		5E8989791FD4BA1D00ACE734 /* LevelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCollectionViewCell.swift; sourceTree = "<group>"; };
 		5ECB2F551FDDDBAC009FE53C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		5ECB2F571FDDF2A9009FE53C /* TimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
 		5EEBF4351FDB398F00293EB4 /* MagicResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicResult.swift; sourceTree = "<group>"; };
 		5EEBF4371FDCD96400293EB4 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5EEBF4391FDCDAF200293EB4 /* ModeSettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSettingsTableViewCell.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				5E205C4B1FD0882400816F78 /* Main.storyboard */,
 				5EEBF4491FDCE02400293EB4 /* Magic Settings Cells */,
 				5EEBF4371FDCD96400293EB4 /* SettingsViewController.swift */,
+				5ECB2F571FDDF2A9009FE53C /* TimeViewController.swift */,
 				5E672ED31FD769DB00614EA4 /* MagicViewController.swift */,
 				5E672EC71FD760AA00614EA4 /* MagicItemViewController.swift */,
 				5E672EC91FD7617D00614EA4 /* MagicCollectionViewCell.swift */,
@@ -264,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E8989761FD4B2E100ACE734 /* Level.swift in Sources */,
+				5ECB2F581FDDF2A9009FE53C /* TimeViewController.swift in Sources */,
 				5EEBF4361FDB398F00293EB4 /* MagicResult.swift in Sources */,
 				5E8989781FD4B58800ACE734 /* Levels.swift in Sources */,
 				5EEBF43E1FDCDBED00293EB4 /* BackgroundsTableViewCell.swift in Sources */,
