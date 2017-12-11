@@ -7,17 +7,33 @@
 //
 
 import UIKit
+import Photos
 
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, MagicScreensDelegate, UINavigationControllerDelegate, SuitsChangedDelegate, BackgroundCellDelegate, UIPopoverPresentationControllerDelegate {
     
     let settings = ["Mode","Screenshots","Background Style","Time of Prediction","Suit Order"]
     let imagePicker = UIImagePickerController()
-    var magicSettings: MagicSettings!
-    var modeNormal: Bool = true
+    
+    var mode: MagicSettings.Mode = .Crash
+    var predictionDate: MagicSettings.Date = .TimeOfPerformance
     var images = [Int : Data]()
-    var predictionDate: Date = Date()
-    var suitOrder = [String]()
     var suits = ["♣️","♥️","♠️","♦️"]
+    
+    var magicSettings: MagicSettings? {
+        get {
+            return MagicSettings(mode: mode, date: predictionDate, images: images, suitOrder: suits)
+        }
+        set {
+            if let settings = newValue {
+                self.mode = settings.mode
+                self.predictionDate = settings.time
+                self.images = settings.images
+                self.suits = settings.suitOrder
+            }
+            settingsTableView.reloadData()
+        }
+    }
+
     var colors = Colors.all
     
     @IBOutlet weak var settingsTableView: UITableView! {
@@ -29,12 +45,13 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        magicSettings = MagicSettings(mode: 0, images: images, time: predictionDate, suitOrder: suits)
+        if let magicIsReal = getMagicFromDisk() {
+            magicSettings = magicIsReal
+        }
         imagePicker.delegate = self
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .photoLibrary
         imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,7 +63,24 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     @IBAction func saveAndPerform(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "perform", sender: self)
+        if images.count == 3 {
+            self.performSegue(withIdentifier: "perform", sender: self)
+        } else {
+            alert("Missing Settings", message: "Check screenshot settings.")
+        }
+    }
+    
+    private func alert(_ title: String, message: String) {
+        let alert = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(
+            title: "Dismiss",
+            style: .default
+        ))
+        present(alert, animated: true)
     }
     
     // MARK - MagicScreensDelegate
@@ -66,7 +100,43 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     // MARK - BackgroundCellDelegate
     
     func didSelectCellFrom(_ backgroundsTableViewCell: BackgroundsTableViewCell, at index: Int) {
-        
+        let backgroundImage = UIImage(color: colors[index])
+        if let image = backgroundImage {
+            askToSave(image)
+        }
+    }
+    
+    private func askToSave(_ image: UIImage) {
+        let alertMessage = UIAlertController(title: "Save image?", message: "", preferredStyle: .alert)
+
+        let imgAction = UIAlertAction(title: "Yes", style: .default) { (action) in
+            PHPhotoLibrary.shared().performChanges({
+                PHAssetChangeRequest.creationRequestForAsset(from: image)
+            }) { (success, error) in
+                if success {
+                    print("Saved!")
+                    self.alert("Saved!", message: "")
+                } else if let error = error {
+                    print("error: \(error)")
+                    self.alert("Error!", message: error.localizedDescription)
+                } else {
+                    print("failed :(")
+                }
+            }
+        }
+        let imageView = UIImageView(frame: CGRect(x: 16, y: 16, width: 40, height: 40))
+        imageView.layer.cornerRadius = 3.0
+        imageView.layer.masksToBounds = true
+        imageView.image = image
+        alertMessage.addAction(imgAction)
+        alertMessage.view.addSubview(imageView)
+
+        alertMessage.addAction(UIAlertAction(
+            title: "No",
+            style: .cancel
+        ))
+            
+        self.present(alertMessage, animated: true, completion: nil)
     }
     
     // MARK - UIImagePickerControllerDelegate
@@ -152,7 +222,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
 
-    // ideas taken from:
+    // ideas based on:
     //https://stackoverflow.com/questions/31759615/how-to-center-a-popoverview-in-swift
     //https://stackoverflow.com/questions/31221588/why-is-present-as-popover-segue-covering-the-whole-screen
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -170,5 +240,53 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .none
+    }
+    
+    // MARK - Persistent Magic Data
+    // based on some ideas from https://medium.com/@sdrzn/networking-and-persistence-with-json-in-swift-4-c400ecab402d
+    
+    func getFileURL() -> URL {
+        if let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            return url
+        } else {
+            fatalError("Could not retrieve documents directory")
+        }
+    }
+    
+    func saveMagicToDisk(magic: MagicSettings) {
+        let url = getFileURL().appendingPathComponent("magic.json")
+        do {
+            let data = magic.json
+            try data?.write(to: url, options: [])
+        } catch {
+            //fatalError(error.localizedDescription)
+        }
+    }
+    
+    func getMagicFromDisk() -> MagicSettings? {
+        let url = getFileURL().appendingPathComponent("magic.json")
+        do {
+            let data = try Data(contentsOf: url, options: [])
+            return MagicSettings(json: data)
+        } catch {
+            //fatalError(error.localizedDescription)
+        }
+        return nil
+    }
+    
+}
+
+// extension from : https://stackoverflow.com/questions/26542035/create-uiimage-with-solid-color-in-swift
+public extension UIImage {
+    public convenience init?(color: UIColor) {
+        let rect = CGRect(origin: .zero, size: CGSize(width: 1, height: 1))
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
+        color.setFill()
+        UIRectFill(rect)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        guard let cgImage = image?.cgImage else { return nil }
+        self.init(cgImage: cgImage)
     }
 }
