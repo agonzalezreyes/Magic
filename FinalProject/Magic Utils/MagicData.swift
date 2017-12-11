@@ -17,7 +17,6 @@ struct MagicData {
                         "♣️","♣️","♣️","♣️",
                         "♥️","♥️","♥️","♥️",
                         "♦️","♦️","♦️","♦️"]
-    static var crashData = ["crash","animate"]
     static let timeOptions = ["Time of performance",
                        "1 hour before",
                        "2 hours before",

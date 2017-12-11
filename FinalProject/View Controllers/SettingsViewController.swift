@@ -62,6 +62,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     @IBAction func saveSettings(_ sender: UIButton) {
         if images.count == 3 {
             saveMagicToDisk(magic: magicSettings!)
+            self.dismiss(animated: true, completion: nil)
         } else {
             alert("Missing Settings", message: "Check screenshot settings.")
         }
@@ -69,6 +70,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBAction func saveAndPerform(_ sender: UIButton) {
         if images.count == 3 {
+            saveMagicToDisk(magic: magicSettings!)
             self.performSegue(withIdentifier: "perform", sender: self)
         } else {
             alert("Missing Settings", message: "Check screenshot settings.")
@@ -257,6 +259,18 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             popoverViewController.popoverPresentationController?.sourceView = self.view
             popoverViewController.popoverPresentationController?.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
             popoverViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
+        } else if segue.identifier == "perform" {
+            let magicVC = segue.destination as! MagicViewController
+            var imagesToPass = [UIImage]()
+            for i in 0..<3 {
+                if let data = images[i] {
+                    imagesToPass.append(UIImage(data: data)!)
+                }
+            }
+            magicVC.magicalImages = imagesToPass
+            magicVC.suitOder = self.suits
+            magicVC.mode = self.mode
+            magicVC.predictionDate = self.predictionDate
         }
     }
     

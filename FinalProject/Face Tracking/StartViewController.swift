@@ -87,8 +87,6 @@ class StartViewController: UIViewController, FaceDetectionDelegate {
         swipeDown.numberOfTouchesRequired = 2
         self.view.addGestureRecognizer(swipeDown)
         
-        self.gameDone()
-        
     }
 
     @objc private func gameDone(){

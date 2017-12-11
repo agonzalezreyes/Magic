@@ -40,19 +40,10 @@ class TimeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Dispose of any resources that can be recreated.
     }
     
-    // modified and updated to swift 4.0 from https://gist.github.com/kkleidal/73401405f7d5fd168d061ad0c154ea18
-    private var xifDateFormatter: DateFormatter = { () -> DateFormatter in
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "en_US")
-        dateFormatter.dateFormat = "yyyy:MM:dd' 'HH:mm:ss"
-        dateFormatter.timeZone = TimeZone(abbreviation: "PST")
-        return dateFormatter
-    }()
-    
     @IBAction func setButton(_ sender: UIButton) {
-        let timeData = xifDateFormatter.string(from: timePicker.date)
+        let timeCustom = timePicker.date
         let defaults = UserDefaults.standard
-        defaults.set(timeData, forKey: "custom")
+        defaults.set(timeCustom, forKey: "custom")
         defaults.synchronize()
         self.delegate?.timeViewController(self, timeMode: MagicSettings.Date.Custom)
         dismiss(animated: true, completion: nil)
@@ -69,7 +60,6 @@ class TimeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 self.delegate?.timeViewController(self, timeMode: MagicSettings.Date.all[indexPath.row])
                 dismiss(animated: true, completion: nil)
             }
-            
         }
     }
     
@@ -92,7 +82,7 @@ class TimeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TimeCell", for: indexPath)
         cell.textLabel?.text = timeOptions[indexPath.row]
-        if let modeSaved = currentMode?.rawValue, modeSaved == indexPath.row {
+        if let modeSaved = currentMode, modeSaved.rawValue == indexPath.row {
             cell.isSelected = true
         }
         return cell

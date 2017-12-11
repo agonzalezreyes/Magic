@@ -85,7 +85,7 @@
                         <outletCollection property="starViews" destination="A0e-rR-L4e" collectionClass="NSMutableArray" id="R2G-Sm-OFc"/>
                         <outletCollection property="starViews" destination="A32-kM-psh" collectionClass="NSMutableArray" id="UbU-SK-scl"/>
                         <outletCollection property="starViews" destination="x59-Fy-8Hw" collectionClass="NSMutableArray" id="98n-YF-cSR"/>
-                        <segue destination="j0N-Ik-kLw" kind="showDetail" identifier="nextVC" action="showViewController:sender:" id="0bx-MB-ax5"/>
+                        <segue destination="j0N-Ik-kLw" kind="presentation" identifier="nextVC" id="0bx-MB-ax5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -338,7 +338,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ogn-PL-yQe">
                                                 <rect key="frame" x="0.0" y="0.0" width="187.5" height="49"/>
                                                 <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                <state key="normal" title="Save">
+                                                <state key="normal" title="Save &amp; Close">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -389,7 +389,7 @@
                     <navigationItem key="navigationItem" title="Settings" id="ghg-st-KJn"/>
                     <connections>
                         <outlet property="settingsTableView" destination="e4i-tT-riG" id="5hT-D2-0pb"/>
-                        <segue destination="BcV-US-Wah" kind="showDetail" identifier="perform" action="showViewController:sender:" id="OH2-zi-6zT"/>
+                        <segue destination="BcV-US-Wah" kind="presentation" identifier="perform" modalTransitionStyle="crossDissolve" id="OH2-zi-6zT"/>
                         <segue destination="dnl-Wt-VME" kind="popoverPresentation" identifier="PopTimer" popoverAnchorView="nRv-Yt-GYa" id="Hwn-mp-dfx">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
@@ -491,7 +491,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GxJ-Md-YpJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="57" y="815"/>
+            <point key="canvasLocation" x="31" y="842"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="feL-BM-Czg">
@@ -499,7 +499,7 @@
                 <pageViewController storyboardIdentifier="MagicPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="OuW-Bu-pm8" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NC7-xi-hkY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="718" y="828"/>
+            <point key="canvasLocation" x="713" y="842"/>
         </scene>
         <!--Magic Item View Controller-->
         <scene sceneID="v16-s6-OiY">
@@ -556,7 +556,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z9f-Cr-yOA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1432.8" y="810.94452773613204"/>
+            <point key="canvasLocation" x="1372" y="842"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="B7o-jR-12K">

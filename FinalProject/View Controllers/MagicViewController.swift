@@ -7,38 +7,49 @@
 //
 
 import UIKit
+import Photos
+import ImageIO
 
 class MagicViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, MagicResultDelegate {
     
     private var magicPageViewController: UIPageViewController?
     private var realMagicData: [[String]] = [[String]]()
-    private var magicalImages: [UIImage] = [UIImage]()
-    private var imagesNames = ["3.PNG","2.PNG","1.PNG"]
+    var magicalImages: [UIImage] = [UIImage]()
+    var suitOder = [String]()
+    var mode: MagicSettings.Mode = .Crash
+    var predictionDate: MagicSettings.Date = .TimeOfPerformance
+
     private var pageControl = UIPageControl()
     private var bottomImage: UIImageView!
     private var statusImage: UIImageView!
     private var controlImage: UIImageView!
     private var houdini: UIImageView!
-    private var magicResult = MagicResult(with: ".PNG")
+    private var magicResult = MagicResult() {
+        didSet {
+            if let label = cardInfoLabel {
+                label.text = "\(magicResult.cardFileName())"
+            }
+        }
+    }
+    private var suitData = [String]()
     
-    // modified and updated to swift 4.0 from https://gist.github.com/kkleidal/73401405f7d5fd168d061ad0c154ea18
-    private var xifDateFormatter: DateFormatter = { () -> DateFormatter in
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "en_US")
-        dateFormatter.dateFormat = "yyyy:MM:dd' 'HH:mm:ss"
-        dateFormatter.timeZone = TimeZone(abbreviation: "PST")
-        return dateFormatter
-    }()
+    lazy var animator = UIDynamicAnimator(referenceView: view)
+    lazy var cardBehavior = CardViewBehavior(in: animator)
+    private var cardInfoLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         // ✨
-        realMagicData =  [MagicData.crashData,
-                          MagicData.cardNumbers,
-                          MagicData.suits]
-        for i in imagesNames {
-            magicalImages.append(UIImage(named: i)!)
+       
+        for i in suitOder {
+            for _ in 0...3{
+                suitData.append(i)
+            }
         }
+        print(suitData)
+         // ✨
+        realMagicData =  [["this line is just a placeholder for crash screen"],
+                          MagicData.cardNumbers,
+                          suitData]
         
         let mostMagicalImage = magicalImages[0]
         let houdiniImage = getColorImage(from: mostMagicalImage)
@@ -64,20 +75,97 @@ class MagicViewController: UIViewController, UIPageViewControllerDataSource, UIP
         magicPageViewController!.didMove(toParentViewController: self)
         
         addMagic()
+        
+        cardInfoLabel = UILabel(frame: CGRect(x: 100, y: 5, width: 70, height: 10))
+        cardInfoLabel.adjustsFontSizeToFitWidth = true
+        cardInfoLabel.font = UIFont(name: "Helvetica", size: 10.0)
+        self.view.addSubview(cardInfoLabel)
     }
     
     func magicIndex(_ magicItemViewController: MagicItemViewController, index result: Int) {
         let index = currentControllerIndex()
         switch index {
         case 2:
-            let suit = MagicData.suits[result]
+            let suit = suitData[result]
             magicResult.number = "\(suit)"
+            print(suit)
         case 1:
             let num = MagicData.cardNumbers[result]
             magicResult.number = "\(num)"
+            print(num)
         default:
-            print("crash")
+            print("nothing")
         }
+    }
+
+    private func image() -> UIImage {
+        return UIImage(named: magicResult.cardFileName())!
+    }
+    
+    private func saveAndCrash(){
+        print("saveAndCrash")
+        saveImage(image())
+    }
+    
+    private func saveImage(_ image: UIImage) {
+        PHPhotoLibrary.shared().performChanges({
+            let request = PHAssetChangeRequest.creationRequestForAsset(from: image)
+            request.creationDate = self.getCreationDate() // MAGIC PREDICTION
+        }) { (success, error) in
+            if success {
+                print("Saved!")
+                fatalError()// YAY WE CRASH OUR OWN APP FOR THE SAKE OF MAGIC ✨
+            } else if let error = error {
+                print("error: \(error)")
+            } else {
+                print("failed :(")
+            }
+        }
+    }
+    
+    private func animateAndCrash() {
+        print("animateAndCrash")
+        let imageCard = image()
+        let cardImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 150))
+        cardImageView.center = self.view.center
+        cardImageView.image = imageCard
+        self.view.addSubview(cardImageView)
+        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 3.0, delay: 0, options: [], animations: {
+            cardImageView.transform = CGAffineTransform.identity.scaledBy(x: 1.5, y: 1.5)
+        }) { (position) in
+            UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 6.0, delay: 0, options: [], animations: {
+                self.cardBehavior.addItem(cardImageView)
+            }, completion: { (position) in
+                DispatchQueue.main.asyncAfter(deadline: .now() + 6.0, execute: {
+                    self.cardBehavior.removeItem(cardImageView)
+                    self.saveImage(imageCard)
+                })
+            })
+        }
+    }
+    
+    
+    func getCreationDate() -> Date {
+        let rightNow = Date()
+        var date = rightNow
+        switch predictionDate {
+        case .TimeOfPerformance:
+            date = rightNow
+        case .OneHourAgo:
+            date = rightNow.addingTimeInterval(-3600)
+        case .TwoHoursAgo:
+            date = rightNow.addingTimeInterval(-3600)
+        case .OneDayAgo:
+            date = rightNow.addingTimeInterval(-86400.0)
+        case .OneWeekAgo:
+            date = rightNow.addingTimeInterval(-1209600.0)
+        case .OneMonthAgo:
+            date = rightNow.addingTimeInterval(-5259487.66)
+        case .Custom:
+            let defaults = UserDefaults.standard
+            date = defaults.object(forKey: "custom") as! Date
+        }
+        return date
     }
     
     private func addMagic(){
@@ -164,6 +252,13 @@ class MagicViewController: UIViewController, UIPageViewControllerDataSource, UIP
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         let index = currentControllerIndex()
+        if index == 0 { // we reached the end, here we decide what to do with the card
+            if mode == .Crash {
+                saveAndCrash()
+            } else if mode == .AnimateCrash {
+                animateAndCrash()
+            }
+        }
         pageControl.currentPage = index + 1
     }
     

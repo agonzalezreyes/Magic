@@ -9,15 +9,15 @@
 import Foundation
 
 struct MagicResult {
-    var suit = ""
-    var number = ""
-    var fileType = ".PNG" // screenshots are PNG
+    var suit = "♠️"
+    var number = "A"
+    //var fileType = ".PNG" // screenshots are PNG
     
-    init(with fileExtension: String) {
-        fileType = fileExtension
-    }
+//    init(with fileExtension: String) {
+//        fileType = fileExtension
+//    }
     
     public func cardFileName() -> String {
-        return suit + number + fileType
+        return suit + number //+ fileType
     }
 }

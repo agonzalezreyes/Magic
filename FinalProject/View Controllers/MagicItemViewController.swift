@@ -23,7 +23,8 @@ class MagicItemViewController: UIViewController, UICollectionViewDataSource, UIC
         didSet {
             collectionView.delegate = self
             collectionView.dataSource = self
-            collectionView.isScrollEnabled = false
+            collectionView.isScrollEnabled = true
+            collectionView.isUserInteractionEnabled = true
         }
     }
     var magicImageBackground: UIImage! {
@@ -59,11 +60,8 @@ class MagicItemViewController: UIViewController, UICollectionViewDataSource, UIC
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MagicCell", for: indexPath) as! MagicCollectionViewCell
         cell.magicIdentifier = magicData[indexPath.row]
+        cell.isUserInteractionEnabled = true
         return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-        self.delegate?.magicIndex(self, index: indexPath.row)
     }
     
     // MARK: - UICollectionViewDelegateFlowLayout
@@ -85,7 +83,9 @@ class MagicItemViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.row)
+        self.delegate?.magicIndex(self, index: indexPath.row)
     }
-
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        self.delegate?.magicIndex(self, index: indexPath.row)
+    }
 }

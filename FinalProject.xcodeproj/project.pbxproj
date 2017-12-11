@@ -21,12 +21,10 @@
 		5E89896C1FD4723100ACE734 /* done.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E89896A1FD4723100ACE734 /* done.wav */; };
 		5E89896D1FD4723100ACE734 /* coin.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E89896B1FD4723100ACE734 /* coin.wav */; };
 		5E8989701FD476DC00ACE734 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E89896F1FD476DC00ACE734 /* SecondViewController.swift */; };
-		5E8989721FD4823500ACE734 /* Levels.json in Resources */ = {isa = PBXBuildFile; fileRef = 5E8989711FD4823500ACE734 /* Levels.json */; };
-		5E8989761FD4B2E100ACE734 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8989751FD4B2E100ACE734 /* Level.swift */; };
-		5E8989781FD4B58800ACE734 /* Levels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8989771FD4B58800ACE734 /* Levels.swift */; };
 		5E89897A1FD4BA1D00ACE734 /* LevelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8989791FD4BA1D00ACE734 /* LevelCollectionViewCell.swift */; };
 		5ECB2F561FDDDBAC009FE53C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECB2F551FDDDBAC009FE53C /* Colors.swift */; };
 		5ECB2F581FDDF2A9009FE53C /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECB2F571FDDF2A9009FE53C /* TimeViewController.swift */; };
+		5ECB2F5C1FDF0973009FE53C /* CardViewBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECB2F5B1FDF0973009FE53C /* CardViewBehavior.swift */; };
 		5EEBF4361FDB398F00293EB4 /* MagicResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF4351FDB398F00293EB4 /* MagicResult.swift */; };
 		5EEBF4381FDCD96400293EB4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF4371FDCD96400293EB4 /* SettingsViewController.swift */; };
 		5EEBF43A1FDCDAF200293EB4 /* ModeSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBF4391FDCDAF200293EB4 /* ModeSettingsTableViewCell.swift */; };
@@ -59,12 +57,10 @@
 		5E89896A1FD4723100ACE734 /* done.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = done.wav; sourceTree = "<group>"; };
 		5E89896B1FD4723100ACE734 /* coin.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = coin.wav; sourceTree = "<group>"; };
 		5E89896F1FD476DC00ACE734 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		5E8989711FD4823500ACE734 /* Levels.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Levels.json; sourceTree = "<group>"; };
-		5E8989751FD4B2E100ACE734 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
-		5E8989771FD4B58800ACE734 /* Levels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Levels.swift; sourceTree = "<group>"; };
 		5E8989791FD4BA1D00ACE734 /* LevelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCollectionViewCell.swift; sourceTree = "<group>"; };
 		5ECB2F551FDDDBAC009FE53C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		5ECB2F571FDDF2A9009FE53C /* TimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
+		5ECB2F5B1FDF0973009FE53C /* CardViewBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewBehavior.swift; sourceTree = "<group>"; };
 		5EEBF4351FDB398F00293EB4 /* MagicResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicResult.swift; sourceTree = "<group>"; };
 		5EEBF4371FDCD96400293EB4 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5EEBF4391FDCDAF200293EB4 /* ModeSettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSettingsTableViewCell.swift; sourceTree = "<group>"; };
@@ -110,23 +106,15 @@
 		5E205C461FD0882400816F78 /* FinalProject */ = {
 			isa = PBXGroup;
 			children = (
-				5E205C471FD0882400816F78 /* AppDelegate.swift */,
-				5E205C4B1FD0882400816F78 /* Main.storyboard */,
-				5EEBF4491FDCE02400293EB4 /* Magic Settings Cells */,
-				5EEBF4371FDCD96400293EB4 /* SettingsViewController.swift */,
-				5ECB2F571FDDF2A9009FE53C /* TimeViewController.swift */,
-				5E672ED31FD769DB00614EA4 /* MagicViewController.swift */,
-				5E672EC71FD760AA00614EA4 /* MagicItemViewController.swift */,
-				5E672EC91FD7617D00614EA4 /* MagicCollectionViewCell.swift */,
-				5E672ECB1FD762E000614EA4 /* MagicData.swift */,
-				5EEBF4351FDB398F00293EB4 /* MagicResult.swift */,
-				5EEBF4471FDCDE8400293EB4 /* MagicSettings.swift */,
-				5ECB2F551FDDDBAC009FE53C /* Colors.swift */,
-				5E8989651FD3AB2300ACE734 /* Test Card Images */,
+				5EF614931FDF2CEB000F3AB2 /* View Controllers */,
+				5EEBF4491FDCE02400293EB4 /* Magic Cells */,
+				5EF614921FDF2C74000F3AB2 /* Magic Utils */,
 				5E672ECD1FD768FD00614EA4 /* Face Tracking */,
 				5E89896E1FD4724800ACE734 /* Sound FX */,
-				5E672ECE1FD7694600614EA4 /* Scavenger hunt  */,
+				5E8989651FD3AB2300ACE734 /* Ignore these test files */,
 				5E205C4E1FD0882400816F78 /* Assets.xcassets */,
+				5E205C471FD0882400816F78 /* AppDelegate.swift */,
+				5E205C4B1FD0882400816F78 /* Main.storyboard */,
 				5E205C501FD0882400816F78 /* LaunchScreen.storyboard */,
 				5E205C531FD0882400816F78 /* Info.plist */,
 			);
@@ -144,17 +132,7 @@
 			path = "Face Tracking";
 			sourceTree = "<group>";
 		};
-		5E672ECE1FD7694600614EA4 /* Scavenger hunt  */ = {
-			isa = PBXGroup;
-			children = (
-				5E8989711FD4823500ACE734 /* Levels.json */,
-				5E8989771FD4B58800ACE734 /* Levels.swift */,
-				5E8989751FD4B2E100ACE734 /* Level.swift */,
-			);
-			path = "Scavenger hunt ";
-			sourceTree = "<group>";
-		};
-		5E8989651FD3AB2300ACE734 /* Test Card Images */ = {
+		5E8989651FD3AB2300ACE734 /* Ignore these test files */ = {
 			isa = PBXGroup;
 			children = (
 				5E89896F1FD476DC00ACE734 /* SecondViewController.swift */,
@@ -162,7 +140,7 @@
 				5EF86A561FD895F60050DFF8 /* 2.PNG */,
 				5EF86A541FD895F50050DFF8 /* 3.PNG */,
 			);
-			path = "Test Card Images";
+			path = "Ignore these test files";
 			sourceTree = "<group>";
 		};
 		5E89896E1FD4724800ACE734 /* Sound FX */ = {
@@ -174,9 +152,10 @@
 			path = "Sound FX";
 			sourceTree = "<group>";
 		};
-		5EEBF4491FDCE02400293EB4 /* Magic Settings Cells */ = {
+		5EEBF4491FDCE02400293EB4 /* Magic Cells */ = {
 			isa = PBXGroup;
 			children = (
+				5E672EC91FD7617D00614EA4 /* MagicCollectionViewCell.swift */,
 				5EEBF4451FDCDD9A00293EB4 /* BackgroundCollectionViewCell.swift */,
 				5EEBF4431FDCDD6A00293EB4 /* SuitCollectionViewCell.swift */,
 				5EEBF4411FDCDCF000293EB4 /* SuitsTableViewCell.swift */,
@@ -185,7 +164,30 @@
 				5EEBF43B1FDCDB5200293EB4 /* ScreensTableViewCell.swift */,
 				5EEBF4391FDCDAF200293EB4 /* ModeSettingsTableViewCell.swift */,
 			);
-			path = "Magic Settings Cells";
+			path = "Magic Cells";
+			sourceTree = "<group>";
+		};
+		5EF614921FDF2C74000F3AB2 /* Magic Utils */ = {
+			isa = PBXGroup;
+			children = (
+				5ECB2F5B1FDF0973009FE53C /* CardViewBehavior.swift */,
+				5E672ECB1FD762E000614EA4 /* MagicData.swift */,
+				5EEBF4351FDB398F00293EB4 /* MagicResult.swift */,
+				5EEBF4471FDCDE8400293EB4 /* MagicSettings.swift */,
+				5ECB2F551FDDDBAC009FE53C /* Colors.swift */,
+			);
+			path = "Magic Utils";
+			sourceTree = "<group>";
+		};
+		5EF614931FDF2CEB000F3AB2 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5EEBF4371FDCD96400293EB4 /* SettingsViewController.swift */,
+				5ECB2F571FDDF2A9009FE53C /* TimeViewController.swift */,
+				5E672ED31FD769DB00614EA4 /* MagicViewController.swift */,
+				5E672EC71FD760AA00614EA4 /* MagicItemViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,6 +222,7 @@
 				TargetAttributes = {
 					5E205C431FD0882400816F78 = {
 						CreatedOnToolsVersion = 9.0.1;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -255,7 +258,6 @@
 				5E205C4D1FD0882400816F78 /* Main.storyboard in Resources */,
 				5EF86A571FD895F60050DFF8 /* 3.PNG in Resources */,
 				5EF86A581FD895F60050DFF8 /* 1.PNG in Resources */,
-				5E8989721FD4823500ACE734 /* Levels.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,10 +268,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E8989761FD4B2E100ACE734 /* Level.swift in Sources */,
 				5ECB2F581FDDF2A9009FE53C /* TimeViewController.swift in Sources */,
 				5EEBF4361FDB398F00293EB4 /* MagicResult.swift in Sources */,
-				5E8989781FD4B58800ACE734 /* Levels.swift in Sources */,
 				5EEBF43E1FDCDBED00293EB4 /* BackgroundsTableViewCell.swift in Sources */,
 				5E205C5A1FD088C000816F78 /* FaceDetection.swift in Sources */,
 				5E205C4A1FD0882400816F78 /* StartViewController.swift in Sources */,
@@ -279,6 +279,7 @@
 				5E8989701FD476DC00ACE734 /* SecondViewController.swift in Sources */,
 				5E672ECA1FD7617D00614EA4 /* MagicCollectionViewCell.swift in Sources */,
 				5EEBF43A1FDCDAF200293EB4 /* ModeSettingsTableViewCell.swift in Sources */,
+				5ECB2F5C1FDF0973009FE53C /* CardViewBehavior.swift in Sources */,
 				5EEBF4381FDCD96400293EB4 /* SettingsViewController.swift in Sources */,
 				5ECB2F561FDDDBAC009FE53C /* Colors.swift in Sources */,
 				5EEBF43C1FDCDB5200293EB4 /* ScreensTableViewCell.swift in Sources */,
@@ -426,6 +427,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K4DJ8NDU4W;
 				INFOPLIST_FILE = FinalProject/Info.plist;
@@ -433,6 +435,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alejandrinagonzalez.magic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -442,6 +446,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K4DJ8NDU4W;
 				INFOPLIST_FILE = FinalProject/Info.plist;
@@ -449,6 +454,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alejandrinagonzalez.magic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
