@@ -9,7 +9,7 @@
 import UIKit
 import Photos
 
-class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, MagicScreensDelegate, UINavigationControllerDelegate, SuitsChangedDelegate, BackgroundCellDelegate, UIPopoverPresentationControllerDelegate {
+class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, MagicScreensDelegate, UINavigationControllerDelegate, SuitsChangedDelegate, BackgroundCellDelegate, UIPopoverPresentationControllerDelegate, TimeViewControllerDelegate, ModeSettingsCellDelegate {
     
     let settings = ["Mode","Screenshots","Background Style","Time of Prediction","Suit Order"]
     let imagePicker = UIImagePickerController()
@@ -60,6 +60,11 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     @IBAction func saveSettings(_ sender: UIButton) {
+        if images.count == 3 {
+            saveMagicToDisk(magic: magicSettings!)
+        } else {
+            alert("Missing Settings", message: "Check screenshot settings.")
+        }
     }
     
     @IBAction func saveAndPerform(_ sender: UIButton) {
@@ -139,6 +144,19 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         self.present(alertMessage, animated: true, completion: nil)
     }
     
+    // MARK - TimeViewControllerDelegate
+    
+    func timeViewController(_ timeViewController: TimeViewController, timeMode: MagicSettings.Date) {
+        self.predictionDate = timeMode
+        settingsTableView.reloadData()
+    }
+    
+    // MARK - ModeSettingsCellDelegate
+    
+    func modeSettingsFrom(_ tableViewCell: ModeSettingsTableViewCell, mode: MagicSettings.Mode) {
+        self.mode = mode
+    }
+    
     // MARK - UIImagePickerControllerDelegate
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -153,6 +171,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     // MARK - UITableViewDataSource
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return self.settings[section]
     }
@@ -169,6 +188,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         switch indexPath.section {
             case 0:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ModeCell", for: indexPath) as! ModeSettingsTableViewCell
+                cell.delegate = self
+                cell.segmentModeControl.selectedSegmentIndex = self.mode.rawValue
                 cell.selectionStyle = .none
                 return cell
             case 1:
@@ -187,6 +208,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                 return cell
             case 3:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "TimeCell", for: indexPath) as! TimeTableViewCell
+                cell.timeLabel.text = MagicData.timeOptions[predictionDate.rawValue]
                 return cell
             case 4:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "SuitsCell", for: indexPath) as! SuitsTableViewCell
@@ -228,6 +250,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PopTimer" {
             let popoverViewController = segue.destination as! TimeViewController
+            popoverViewController.currentMode = mode
+            popoverViewController.delegate = self 
             popoverViewController.modalPresentationStyle = .popover
             popoverViewController.popoverPresentationController!.delegate = self
             popoverViewController.popoverPresentationController?.sourceView = self.view

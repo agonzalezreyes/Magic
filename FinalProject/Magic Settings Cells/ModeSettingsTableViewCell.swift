@@ -8,6 +8,18 @@
 
 import UIKit
 
+protocol ModeSettingsCellDelegate: NSObjectProtocol {
+    func modeSettingsFrom(_ tableViewCell: ModeSettingsTableViewCell, mode: MagicSettings.Mode)
+}
+
 class ModeSettingsTableViewCell: UITableViewCell {
     @IBOutlet weak var segmentModeControl: UISegmentedControl!
+    public weak var delegate: ModeSettingsCellDelegate?
+    @IBAction func segmentTapped(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+             self.delegate?.modeSettingsFrom(self, mode: .Crash)
+        } else {
+            self.delegate?.modeSettingsFrom(self, mode: .AnimateCrash)
+        }
+    }
 }

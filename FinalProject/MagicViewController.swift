@@ -21,6 +21,15 @@ class MagicViewController: UIViewController, UIPageViewControllerDataSource, UIP
     private var houdini: UIImageView!
     private var magicResult = MagicResult(with: ".PNG")
     
+    // modified and updated to swift 4.0 from https://gist.github.com/kkleidal/73401405f7d5fd168d061ad0c154ea18
+    private var xifDateFormatter: DateFormatter = { () -> DateFormatter in
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US")
+        dateFormatter.dateFormat = "yyyy:MM:dd' 'HH:mm:ss"
+        dateFormatter.timeZone = TimeZone(abbreviation: "PST")
+        return dateFormatter
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
          // ✨

@@ -117,6 +117,9 @@
                                                         <segment title="Photo Gallery"/>
                                                         <segment title="Animate + Photo Gallery"/>
                                                     </segments>
+                                                    <connections>
+                                                        <action selector="segmentTapped:" destination="9Vv-MC-YIi" eventType="valueChanged" id="XNp-n6-DCx"/>
+                                                    </connections>
                                                 </segmentedControl>
                                             </subviews>
                                             <constraints>
@@ -427,7 +430,7 @@
                                 </date>
                             </datePicker>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HxR-Qt-sQG">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="404"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="440"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TimeCell" textLabel="x0g-6x-VDM" style="IBUITableViewCellStyleDefault" id="NiJ-Pz-Tah">
@@ -449,35 +452,24 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or pick a specific time:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNV-jx-vIB">
-                                <rect key="frame" x="16" y="404" width="343" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="LsZ-YC-Ltc"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="RBp-Ms-Vy9" firstAttribute="bottom" secondItem="qhj-Ow-DAO" secondAttribute="bottom" id="3bK-dZ-woY"/>
-                            <constraint firstItem="qhj-Ow-DAO" firstAttribute="trailing" secondItem="eNV-jx-vIB" secondAttribute="trailing" constant="16" id="CFB-Hy-2gC"/>
-                            <constraint firstItem="HxR-Qt-sQG" firstAttribute="leading" secondItem="qhj-Ow-DAO" secondAttribute="leading" id="FEK-cc-wki"/>
-                            <constraint firstItem="eNV-jx-vIB" firstAttribute="leading" secondItem="qhj-Ow-DAO" secondAttribute="leading" constant="16" id="GpS-43-WVe"/>
                             <constraint firstItem="RBp-Ms-Vy9" firstAttribute="top" secondItem="gjw-kE-aS7" secondAttribute="bottom" constant="8" id="Gt5-gc-Wgc"/>
-                            <constraint firstItem="HxR-Qt-sQG" firstAttribute="top" secondItem="J69-tG-Da1" secondAttribute="top" id="LYj-oY-lgx"/>
-                            <constraint firstItem="eNV-jx-vIB" firstAttribute="top" secondItem="HxR-Qt-sQG" secondAttribute="bottom" id="YYD-pz-rqZ"/>
+                            <constraint firstItem="HxR-Qt-sQG" firstAttribute="leading" secondItem="qhj-Ow-DAO" secondAttribute="leading" id="J2h-ww-xUn"/>
+                            <constraint firstItem="HxR-Qt-sQG" firstAttribute="top" secondItem="J69-tG-Da1" secondAttribute="top" id="UzT-eX-Aur"/>
+                            <constraint firstItem="gjw-kE-aS7" firstAttribute="top" secondItem="HxR-Qt-sQG" secondAttribute="bottom" constant="8" id="X2v-40-WfP"/>
                             <constraint firstItem="gjw-kE-aS7" firstAttribute="leading" secondItem="qhj-Ow-DAO" secondAttribute="leading" id="aR6-hV-wOk"/>
                             <constraint firstItem="RBp-Ms-Vy9" firstAttribute="trailing" secondItem="qhj-Ow-DAO" secondAttribute="trailing" id="ash-sb-mYr"/>
-                            <constraint firstItem="HxR-Qt-sQG" firstAttribute="trailing" secondItem="qhj-Ow-DAO" secondAttribute="trailing" id="kWc-Ys-PcK"/>
+                            <constraint firstItem="HxR-Qt-sQG" firstAttribute="trailing" secondItem="qhj-Ow-DAO" secondAttribute="trailing" id="mn4-BA-sTk"/>
                             <constraint firstItem="gjw-kE-aS7" firstAttribute="trailing" secondItem="qhj-Ow-DAO" secondAttribute="trailing" id="paP-op-khp"/>
                             <constraint firstItem="RBp-Ms-Vy9" firstAttribute="leading" secondItem="qhj-Ow-DAO" secondAttribute="leading" id="wlU-yK-KbC"/>
-                            <constraint firstItem="gjw-kE-aS7" firstAttribute="top" secondItem="eNV-jx-vIB" secondAttribute="bottom" constant="8" id="wy9-rp-tqP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qhj-Ow-DAO"/>
                     </view>
                     <connections>
+                        <outlet property="saveButton" destination="RBp-Ms-Vy9" id="Y4t-2c-Mf0"/>
                         <outlet property="timePicker" destination="gjw-kE-aS7" id="kmq-t2-Ndt"/>
                         <outlet property="timesTableView" destination="HxR-Qt-sQG" id="hLJ-TK-mib"/>
                     </connections>

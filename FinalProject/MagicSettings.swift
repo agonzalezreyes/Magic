@@ -26,6 +26,13 @@ struct MagicSettings: Codable {
         case OneWeekAgo
         case OneMonthAgo
         case Custom
+        static var all = [Date.TimeOfPerformance,
+                                  .OneHourAgo,
+                                  .TwoHoursAgo,
+                                  .OneDayAgo,
+                                  .OneWeekAgo,
+                                  .OneMonthAgo,
+                                  .Custom]
     }
     
     init(mode: Mode, date: Date, images: [Int : Data], suitOrder: [String]) {
