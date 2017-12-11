@@ -8,7 +8,6 @@
 
 import UIKit
 import Photos
-import ImageIO
 
 class MagicViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, MagicResultDelegate {
     
@@ -87,7 +86,7 @@ class MagicViewController: UIViewController, UIPageViewControllerDataSource, UIP
         switch index {
         case 2:
             let suit = suitData[result]
-            magicResult.number = "\(suit)"
+            magicResult.suit = "\(suit)"
             print(suit)
         case 1:
             let num = MagicData.cardNumbers[result]
